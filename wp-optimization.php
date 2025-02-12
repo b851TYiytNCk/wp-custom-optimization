@@ -11,7 +11,8 @@ class WP_Optimization {
 	}
 
 	public function on_plugins_loaded(): void {
-		$is_target = $_SERVER['REQUEST_URI'] === '/' || str_starts_with( $_SERVER['REQUEST_URI'], '/members' );
+		$is_target = $_SERVER['REQUEST_URI'] === '/'
+		             || $_SERVER['REQUEST_URI'] === '/members/';
 
 		if ( $is_target ) {
 			if ( class_exists( 'WooCommerce' ) ) {
